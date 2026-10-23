@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Welcome to The Royal Garden Academy (ROGA), dedicated to raising a new generation of quality and excellent leaders.">
+
+  <meta name="theme-color" content="#102747">
+
+  <title>The Royal Garden Academy | ROGA</title>
+
+  <style>
+    :root {
+      --navy: #102747;
+      --navy-light: #193b65;
+      --gold: #d6ad52;
+      --cream: #fbf8f0;
+      --white: #ffffff;
+      --text: #263449;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background: var(--white);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .topbar {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      padding: 9px 15px;
+      font-size: 13px;
+    }
+
+    header {
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 17px;
+      line-height: 1.3;
+    }
+
+    .brand span {
+      display: block;
+      color: #987321;
+      font-size: 12px;
+      letter-spacing: 3px;
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 17px;
+    }
+
+    .nav-links a {
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .nav-links a:hover {
+      color: #ad812b;
+    }
+
+    .nav-links .nav-apply {
+      background: var(--gold);
+      padding: 10px 16px;
+      border-radius: 5px;
+    }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      min-height: 570px;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(125deg, #102747, #244b70);
+      color: white;
+      padding: 85px 24px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background-image: url("images/roga-logo.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: min(75%, 540px);
+      opacity: 0.09;
+    }
+
+    .hero-content {
+      max-width: 1150px;
+      width: 100%;
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: #f2d58c;
+      font-weight: 700;
+      letter-spacing: 3px;
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(36px, 6vw, 65px);
+      line-height: 1.15;
+      max-width: 780px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: #e6c46f;
+    }
+
+    .hero p {
+      max-width: 660px;
+      font-size: 17px;
+      color: #e3eaf3;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 23px;
+      border-radius: 5px;
+      font-weight: 700;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .button-outline {
+      border: 1px solid white;
+      color: white;
+    }
+
+    .section {
+      padding: 80px 22px;
+    }
+
+    .section-inner {
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-heading .eyebrow {
+      color: #987321;
+      margin-bottom: 8px;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(29px, 4vw, 42px);
+      line-height: 1.25;
+    }
+
+    .section-heading p {
+      max-width: 700px;
+      margin: 14px auto 0;
+    }
+
+    .intro {
+      background: var(--cream);
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .intro::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: url("images/roga-logo.png") center / 350px no-repeat;
+      opacity: 0.045;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .intro h2 {
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .intro p {
+      margin-bottom: 15px;
+    }
+
+    .highlight {
+      background: white;
+      border-left: 5px solid var(--gold);
+      padding: 28px;
+      border-radius: 6px;
+      box-shadow: 0 8px 30px rgba(16, 39, 71, 0.08);
+    }
+
+    .highlight h3 {
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .pillars {
+      background: white;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e9e4d9;
+      border-radius: 9px;
+      padding: 30px 25px;
+      box-shadow: 0 8px 25px rgba(16, 39, 71, 0.05);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(16, 39, 71, 0.12);
+    }
+
+    .card .number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #f5ecd6;
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      color: var(--navy);
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .about {
+      background: #f5f7fa;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .info-box {
+      padding: 25px;
+      background: white;
+      border-radius: 8px;
+      border-top: 4px solid var(--gold);
+    }
+
+    .info-box h3 {
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .admissions {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+    }
+
+    .admissions .section-heading h2 {
+      color: white;
+    }
+
+    .admissions .section-heading p {
+      color: #e1e9f2;
+    }
+
+    .admissions-note {
+      max-width: 760px;
+      margin: auto;
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .contact {
+      background: var(--cream);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .contact-item {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .contact-item h3 {
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: #09192e;
+      color: #e1e9f2;
+      padding: 35px 22px;
+      text-align: center;
+    }
+
+    footer h3 {
+      color: #e6c46f;
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      font-size: 13px;
+      margin: 5px 0;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      margin: 18px 0;
+    }
+
+    .footer-links a {
+      color: white;
+      font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+      .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .intro-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 500px;
+        padding: 65px 22px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    Raising a New Generation of Quality and Excellent Leaders Worldwide
+  </div>
+
+  <header>
+    <nav class="navbar" aria-label="Main navigation">
+      <a class="brand" href="#home">
+        THE ROYAL GARDEN ACADEMY
+        <span>ROGA · EST. OCTOBER 2016</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#academics">Academics</a>
+        <a href="#admissions">Admissions</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-apply" href="#admissions">Enquire Now</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="eyebrow">Welcome to ROGA</div>
+
+        <h1>
+          Raising Tomorrow's
+          <span>Leaders Today.</span>
+        </h1>
+
+        <p>
+          Welcome to The Royal Garden Academy, an arm of The Royal
+          Chapel International. We are dedicated to raising a new
+          generation of quality and excellent leaders who will
+          positively impact their communities and the world.
+        </p>
+
+        <div class="buttons">
+          <a class="button button-gold" href="#about">
+            Discover Our School
+          </a>
+
+          <a class="button button-outline" href="#academics">
+            Explore Academics
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section intro" id="about">
+      <div class="section-inner intro-grid">
+        <div>
+          <div class="eyebrow">Our School</div>
+
+          <h2>
+            Education With Purpose, Character and Excellence
+          </h2>
+
+          <p>
+            The Royal Garden Academy (ROGA) is committed to providing
+            quality basic education while nurturing the intellectual,
+            moral, spiritual and practical development of every learner.
+          </p>
+
+          <p>
+            Our approach combines academic learning with religious
+            and moral discipline and practical skills to help children
+            and young people prepare for a productive future.
+          </p>
+
+          <p>
+            We believe every learner deserves an environment that
+            encourages curiosity, responsibility, creativity and a
+            lifelong love of learning.
+          </p>
+        </div>
+
+        <div class="highlight">
+          <h3>Our Vision</h3>
+
+          <p>
+            Raising a New Generation of Quality and Excellent
+            Leaders Worldwide.
+          </p>
+
+          <h3 style="margin-top: 25px;">Our Commitment</h3>
+
+          <p>
+            To equip learners with knowledge, sound character,
+            practical abilities and the confidence to contribute
+            positively to society.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pillars" id="academics">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div class="eyebrow">What Guides Us</div>
+
+          <h2>Our Three Core Pillars</h2>
+
+          <p>
+            Our educational philosophy is built on three foundations
+            that work together to develop well-rounded learners.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="number">01</div>
+
+            <h3>Academic Excellence</h3>
+
+            <p>
+              We promote quality teaching, meaningful learning,
+              intellectual growth and strong educational foundations
+              that prepare learners for future opportunities.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="number">02</div>
+
+            <h3>Religious and Moral Discipline</h3>
+
+            <p>
+              We encourage integrity, respect, responsibility,
+              faith and positive values that guide learners
+              in school and in their communities.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="number">03</div>
+
+            <h3>Practical Skills</h3>
+
+            <p>
+              We value creativity, useful life skills, problem-solving
+              and the development of abilities that help learners
+              apply their knowledge in everyday life.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div class="eyebrow">The ROGA Difference</div>
+
+          <h2>Building a Strong Foundation for Life</h2>
+
+          <p>
+            We aim to provide a supportive learning environment
+            that helps every learner grow academically and personally.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="info-box">
+            <h3>Quality Education</h3>
+
+            <p>
+              Our educational program follows the prescribed
+              Liberian Ministry of Education curriculum for the
+              relevant school levels, supported by appropriate
+              learning resources.
+            </p>
+          </article>
+
+          <article class="info-box">
+            <h3>Dedicated Teachers</h3>
+
+            <p>
+              We value trained and qualified teachers who take
+              a genuine interest in learners' progress and
+              individual development.
+            </p>
+          </article>
+
+          <article class="info-box">
+            <h3>Royal Writing</h3>
+
+            <p>
+              Our signature Royal Writing program emphasizes
+              handwriting development, presentation and the
+              cultivation of careful written work.
+            </p>
+          </article>
+
+          <article class="info-box">
+            <h3>A Caring Community</h3>
+
+            <p>
+              We seek to build positive relationships among
+              learners, teachers, families and the wider community
+              in support of children's educational development.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section admissions" id="admissions">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div class="eyebrow">Join the ROGA Family</div>
+
+          <h2>Give Your Child a Foundation for Excellence</h2>
+
+          <p>
+            We welcome enquiries from parents and guardians who
+            want to learn more about education at The Royal Garden Academy.
+          </p>
+        </div>
+
+        <div class="admissions-note">
+          <h3>Admissions Enquiries</h3>
+
+          <p style="margin: 15px 0 25px;">
+            Contact the school administration for current admission
+            requirements, available classes, registration procedures
+            and other relevant information.
+          </p>
+
+          <a class="button button-gold" href="#contact">
+            Contact the School
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div class="eyebrow">Get in Touch</div>
+
+          <h2>Connect With ROGA</h2>
+
+          <p>
+            We welcome enquiries from parents, prospective learners,
+            prospective employees, partners and supporters.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-item">
+            <h3>Visit Us</h3>
+
+            <p>
+              Paynesville City, Liberia.
+              <br>
+              Please confirm the exact campus address with the school.
+            </p>
+          </div>
+
+          <div class="contact-item">
+            <h3>Admissions</h3>
+
+            <p>
+              Contact the school administration for current
+              admission information.
+            </p>
+          </div>
+
+          <div class="contact-item">
+            <h3>Careers and Partnerships</h3>
+
+            <p>
+              Contact the administration regarding employment,
+              collaboration and sponsorship enquiries.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <h3>The Royal Garden Academy (ROGA)</h3>
+
+    <p>
+      Raising a New Generation of Quality and Excellent Leaders Worldwide.
+    </p>
+
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#academics">Academics</a>
+      <a href="#admissions">Admissions</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <p>
+      &copy; <span id="year"></span>
+      The Royal Garden Academy. All rights reserved.
+    </p>
+
+    <p>Established October 2016.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+      </html>
